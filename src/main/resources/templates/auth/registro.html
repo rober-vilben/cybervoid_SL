@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Registro')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: nav('registro')}"></header>
+<main class="page-main">
+  <section class="category-hero"><div class="container"><p class="eyebrow text-dark mb-2">Cuenta</p><h1 class="page-title display-4 text-uppercase">Registro</h1></div></section>
+  <section class="section-pad"><div class="container"><div class="row justify-content-center"><div class="col-lg-6">
+    <form class="profile-panel d-grid gap-3" th:action="@{/registro}" th:object="${registroForm}" method="post">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+      <label>Nombre<input class="form-control mt-1" th:field="*{nombre}" required></label>
+      <label>Email<input class="form-control mt-1" type="email" th:field="*{email}" required></label>
+      <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+      <label>Contrasena<input class="form-control mt-1" type="password" th:field="*{password}" required></label>
+      <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+      <label>Telefono<input class="form-control mt-1" th:field="*{telefono}"></label>
+      <label>Direccion<input class="form-control mt-1" th:field="*{direccion}"></label>
+      <button class="btn btn-cv-dark" type="submit">Crear cuenta</button>
+    </form>
+  </div></div></div></section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="CyberVoid editorial fashion background">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset="0.5" stop-color="#202020"/>
+      <stop offset="1" stop-color="#d8d8d8"/>
+    </linearGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0v72" fill="none" stroke="#ffffff" stroke-opacity=".11"/>
+    </pattern>
+  </defs>
+  <rect width="1800" height="1100" fill="url(#g)"/>
+  <rect width="1800" height="1100" fill="url(#grid)"/>
+  <path d="M1170 130h390l-90 840h-430z" fill="#111"/>
+  <path d="M1245 215h205l-50 620h-215z" fill="#f2f2f2" opacity=".9"/>
+  <path d="M1350 215l-12 620" stroke="#050505" stroke-width="24" opacity=".3"/>
+  <path d="M875 235h255l-72 735H815z" fill="#080808"/>
+  <path d="M930 302h118l-34 498H888z" fill="#cfcfcf"/>
+  <path d="M580 280h190l70 690H510z" fill="#191919"/>
+  <path d="M620 360h88l36 448H578z" fill="#efefef" opacity=".8"/>
+  <path d="M0 890c300-92 570-86 810-35 350 74 638 83 990-58v303H0z" fill="#050505" opacity=".72"/>
+</svg>

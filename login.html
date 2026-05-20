@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | CyberVoid S.L.</title>
+  <meta name="description" content="Acceso de usuario a CyberVoid S.L.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><span class="brand-mark">CV</span>CyberVoid S.L.</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="mujer.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mujer</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="mujer.html#camisetas">Camisetas</a></li><li><a class="dropdown-item" href="mujer.html#sudaderas">Sudaderas</a></li><li><a class="dropdown-item" href="mujer.html#pantalones">Pantalones</a></li><li><a class="dropdown-item" href="mujer.html#chaquetas">Chaquetas</a></li><li><a class="dropdown-item" href="mujer.html#accesorios">Accesorios</a></li></ul></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="hombre.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hombre</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="hombre.html#camisetas">Camisetas</a></li><li><a class="dropdown-item" href="hombre.html#sudaderas">Sudaderas</a></li><li><a class="dropdown-item" href="hombre.html#pantalones">Pantalones</a></li><li><a class="dropdown-item" href="hombre.html#chaquetas">Chaquetas</a></li><li><a class="dropdown-item" href="hombre.html#accesorios">Accesorios</a></li></ul></li>
+            <li class="nav-item"><a class="nav-link" href="ofertas.html">Ofertas</a></li>
+            <li class="nav-item"><a class="nav-link position-relative" href="carrito.html">Carrito <span class="badge rounded-pill text-bg-light ms-1 d-none" data-cart-count>0</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="usuario.html">Usuario</a></li>
+            <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="login-screen">
+      <div class="container">
+        <div class="login-shell">
+          <aside class="login-brand">
+            <div>
+              <p class="eyebrow mb-3">CyberVoid S.L.</p>
+              <h1>Accede a tu cuenta</h1>
+              <p class="login-brand-copy">Gestiona tus datos, revisa tus pedidos y continua tu carrito desde tu zona de usuario.</p>
+            </div>
+            <div class="login-highlights" aria-label="Ventajas de la cuenta">
+              <span>Pedidos guardados</span>
+              <span>Carrito protegido</span>
+              <span>Perfil actualizado</span>
+            </div>
+          </aside>
+
+          <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-panel-header">
+              <p class="eyebrow text-dark mb-2">Usuario</p>
+              <h2 id="login-title">Iniciar sesion</h2>
+              <p>Introduce tu email y contrasena para entrar en tu area personal.</p>
+            </div>
+
+            <form action="usuario.html" method="get" class="login-form">
+              <label class="form-label" for="username">Email</label>
+              <div class="login-field">
+                <span aria-hidden="true">@</span>
+                <input id="username" class="form-control" type="email" name="email" autocomplete="email" placeholder="tuemail@ejemplo.com" required autofocus>
+              </div>
+
+              <label class="form-label" for="password">Contrasena</label>
+              <div class="login-field">
+                <span aria-hidden="true">#</span>
+                <input id="password" class="form-control" type="password" name="password" autocomplete="current-password" placeholder="Tu contrasena" required>
+              </div>
+
+              <button class="btn btn-cv-dark w-100" type="submit">Entrar</button>
+            </form>
+
+            <div class="login-actions">
+              <span>Aun no tienes cuenta?</span>
+              <a href="usuario.html">Crear cuenta</a>
+            </div>
+            <a class="login-back" href="index.html">Volver a la tienda</a>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cv-footer py-4">
+    <div class="container d-flex justify-content-between gap-2 flex-wrap">
+      <span>CyberVoid S.L.</span>
+      <span>Acceso de usuario</span>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" data-toast-container></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

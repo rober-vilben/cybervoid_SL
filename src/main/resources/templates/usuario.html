@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Usuario')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: nav('usuario')}"></header>
+<main class="page-main">
+  <section class="category-hero"><div class="container"><p class="eyebrow text-dark mb-2">Cuenta</p><h1 class="page-title display-4 text-uppercase">Perfil de usuario</h1><p class="text-muted-strong col-lg-6">Datos reales de la cuenta y pedidos guardados en servidor.</p></div></section>
+  <section th:replace="~{fragments/layout :: alerts}"></section>
+  <section class="section-pad"><div class="container"><div class="row g-4">
+    <div class="col-lg-4"><section class="profile-panel"><h2>Datos personales</h2><p class="mb-1"><strong>Nombre:</strong> <span th:text="${usuario.nombre}">Nombre</span></p><p class="mb-1"><strong>Email:</strong> <span th:text="${usuario.email}">email</span></p><p class="mb-1"><strong>Telefono:</strong> <span th:text="${usuario.telefono ?: 'Sin telefono'}">telefono</span></p><p class="mb-0"><strong>Direccion:</strong> <span th:text="${usuario.direccion ?: 'Sin direccion'}">direccion</span></p></section></div>
+    <div class="col-lg-8"><section class="profile-panel"><h2>Historial de pedidos</h2>
+      <p class="text-muted" th:if="${#lists.isEmpty(pedidos)}">Todavia no hay pedidos.</p>
+      <div class="order-row" th:each="pedido : ${pedidos}"><span th:text="${pedido.codigo}">#CV</span><span th:text="${pedido.estado}">PAGADO</span><strong th:text="${#numbers.formatDecimal(pedido.total, 1, 2, 'COMMA')} + ' EUR'">0 EUR</strong></div>
+    </section></div>
+  </div></div></section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

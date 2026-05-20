@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Inicio')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: nav('inicio')}"></header>
+<main class="page-main">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <h1>CyberVoid S.L.</h1>
+        <p class="mt-4 mb-4">Ropa alternativa para siluetas urbanas, capas tecnicas y basicos oscuros con catalogo persistente.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-cv-light" th:href="@{/mujer}">Explorar mujer</a>
+          <a class="btn btn-outline-light" th:href="@{/hombre}">Explorar hombre</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section th:replace="~{fragments/layout :: alerts}"></section>
+  <section class="section-pad">
+    <div class="container">
+      <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+        <div><p class="eyebrow text-dark mb-2">Temporadas</p><h2 class="section-title mb-0">Colecciones por estacion</h2></div>
+        <p class="text-muted-strong mb-0 col-lg-4">Cada capsula se carga desde el backend y puede administrarse en MySQL.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3"><a class="product-card d-block" th:href="@{/temporada/primavera}"><img th:src="@{/assets/img/season-primavera.svg}" alt="Primavera"><div class="product-body"><h3 class="product-title">Primavera</h3><p class="product-desc">Capas ligeras</p></div></a></div>
+        <div class="col-md-6 col-lg-3"><a class="product-card d-block" th:href="@{/temporada/verano}"><img th:src="@{/assets/img/season-verano.svg}" alt="Verano"><div class="product-body"><h3 class="product-title">Verano</h3><p class="product-desc">Ligero oscuro</p></div></a></div>
+        <div class="col-md-6 col-lg-3"><a class="product-card d-block" th:href="@{/temporada/otono}"><img th:src="@{/assets/img/season-otono.svg}" alt="Otono"><div class="product-body"><h3 class="product-title">Otono</h3><p class="product-desc">Textura modular</p></div></a></div>
+        <div class="col-md-6 col-lg-3"><a class="product-card d-block" th:href="@{/temporada/invierno}"><img th:src="@{/assets/img/season-invierno.svg}" alt="Invierno"><div class="product-body"><h3 class="product-title">Invierno</h3><p class="product-desc">Abrigo tecnico</p></div></a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section-pad bg-light">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end gap-3 mb-4">
+        <div><p class="eyebrow text-dark mb-2">Ofertas</p><h2 class="section-title mb-0">Rebajas activas</h2></div>
+        <a class="btn btn-outline-dark" th:href="@{/ofertas}">Ver todo</a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" th:each="producto : ${ofertas}">
+          <div th:replace="~{fragments/product-card :: card(${producto})}"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

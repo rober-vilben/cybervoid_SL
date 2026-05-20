@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${titulo})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: nav(${#strings.toLowerCase(titulo)})}"></header>
+<main class="page-main">
+  <section class="category-hero">
+    <div class="container">
+      <p class="eyebrow text-dark mb-2">Catalogo</p>
+      <h1 class="page-title display-4 text-uppercase" th:text="${titulo}">Catalogo</h1>
+      <p class="text-muted-strong col-lg-6" th:text="${descripcion}">Descripcion</p>
+    </div>
+  </section>
+  <section th:replace="~{fragments/layout :: alerts}"></section>
+  <section class="section-pad">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3" th:each="producto : ${productos}">
+          <div th:replace="~{fragments/product-card :: card(${producto})}"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
