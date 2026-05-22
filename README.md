@@ -23,6 +23,7 @@ El proyecto parte de un frontend estatico de moda alternativa/cyberpunk y lo int
 Proyecto_CyberVoid/
 ├── pom.xml
 ├── README.md
+├── INFORME_PRUEBAS.md
 ├── docs/
 │   └── estructura-proyecto-backend.md
 ├── src/
@@ -42,7 +43,12 @@ Proyecto_CyberVoid/
 │   │       └── templates/
 │   └── test/
 │       ├── java/com/cybervoid/
-│       └── resources/
+│       │   ├── controller/
+│       │   ├── repository/
+│       │   ├── security/
+│       │   ├── service/
+│       │   └── CyberVoidApplicationTests.java
+│       └── resources/application-test.properties
 └── target/
 ```
 
@@ -1152,10 +1158,10 @@ alex.void@example.com / user123
 
 ## Pruebas
 
-Las pruebas estan en:
+Las pruebas estan organizadas por paquete en:
 
 ```text
-src/test/java/com/cybervoid/CyberVoidApplicationTests.java
+src/test/java/com/cybervoid/
 ```
 
 El perfil de test usa H2 en modo MySQL:
@@ -1170,13 +1176,39 @@ Ejecutar pruebas:
 mvn test
 ```
 
-Cobertura actual de pruebas:
+Suite actual:
 
-- Arranque del contexto Spring.
-- Renderizado de paginas publicas.
-- Redireccion de carrito sin autenticacion.
-- Acceso a carrito con usuario autenticado simulado.
-- Acceso a administracion con usuario admin simulado.
+- `CyberVoidApplicationTests`: prueba de integracion ligera del contexto Spring, paginas publicas y reglas principales de seguridad.
+- `service/ProductoServiceTest`: catalogo activo, filtros por categoria/ofertas y busqueda por id.
+- `service/UsuarioServiceTest`: registro, normalizacion de email, cifrado de password, rol por defecto y duplicados.
+- `service/CarritoServiceTest`: creacion de carrito, anadir productos, actualizar cantidades, validacion de stock, confirmar pedido, crear venta y vaciar carrito.
+- `service/InformeServiceTest`: generacion del resumen operativo.
+- `security/CustomUserDetailsServiceTest`: carga de usuarios, autoridades y estado activo/inactivo para Spring Security.
+- `controller/AuthControllerTest`: login, registro, validacion de formulario y gestion de email duplicado.
+- `controller/ProductoControllerTest`: rutas de catalogo, ofertas y temporadas.
+- `repository/ProductoRepositoryTest`: consultas derivadas de productos con `@DataJpaTest` y H2.
+
+Resultado validado:
+
+```text
+Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+```
+
+El detalle de trazabilidad entre objetivos, requisitos funcionales y pruebas esta documentado en:
+
+```text
+INFORME_PRUEBAS.md
+```
+
+Funcionalidades documentadas pero no implementadas de forma testeable actualmente:
+
+- Variantes de producto como entidad o flujo propio.
+- CRUD completo de clientes y proveedores.
+- Actualizacion de estado de pedidos desde servicio/controlador.
+- Generacion de ticket.
+- Registro persistente de operaciones.
+- Integracion externa real con proveedores/dropshipping.
 
 ## Empaquetado y despliegue
 
@@ -1266,6 +1298,8 @@ El proyecto incluye:
 - `pom.xml` con dependencias.
 - Codigo Java por capas.
 - Controladores, servicios, repositorios y entidades.
+- Suite de pruebas automatizadas con JUnit 5, Mockito, MockMvc, Spring Security Test y H2.
+- Informe de trazabilidad de pruebas en `INFORME_PRUEBAS.md`.
 - Conexion MySQL configurable.
 - Script SQL y modelo de datos real.
 - Autenticacion real con Spring Security.
